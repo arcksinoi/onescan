@@ -22,7 +22,7 @@ export async function identifyCard(apiKey: string, imageBase64: string) {
     if (!apiKey) throw new Error("API Key is missing");
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     try {
         // Remove header if present (e.g., "data:image/jpeg;base64,")
