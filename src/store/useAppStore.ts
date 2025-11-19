@@ -11,6 +11,10 @@ export interface Card {
     color?: string;
     effectText?: string;
     setCode?: string;
+    rarity?: string;
+    counter?: number;
+    life?: number;
+    tags?: string[];
     timestamp: number;
     imageUrl?: string;
 }

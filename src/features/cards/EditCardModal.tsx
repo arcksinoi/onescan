@@ -39,10 +39,14 @@ export const EditCardModal = ({ card, onClose }: EditCardModalProps) => {
                         <Input name="name" value={formData.name} onChange={handleChange} />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-3 gap-4">
                         <div>
                             <label className="block text-sm font-medium mb-1">Set Code</label>
                             <Input name="setCode" value={formData.setCode || ''} onChange={handleChange} />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium mb-1">Rarity</label>
+                            <Input name="rarity" value={formData.rarity || ''} onChange={handleChange} />
                         </div>
                         <div>
                             <label className="block text-sm font-medium mb-1">Color</label>
@@ -61,8 +65,8 @@ export const EditCardModal = ({ card, onClose }: EditCardModalProps) => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
-                        <div>
+                    <div className="grid grid-cols-4 gap-4">
+                        <div className="col-span-1">
                             <label className="block text-sm font-medium mb-1">Power</label>
                             <Input
                                 name="power"
@@ -71,7 +75,7 @@ export const EditCardModal = ({ card, onClose }: EditCardModalProps) => {
                                 onChange={(e) => setFormData(prev => ({ ...prev, power: Number(e.target.value) }))}
                             />
                         </div>
-                        <div>
+                        <div className="col-span-1">
                             <label className="block text-sm font-medium mb-1">Cost</label>
                             <Input
                                 name="cost"
@@ -80,6 +84,33 @@ export const EditCardModal = ({ card, onClose }: EditCardModalProps) => {
                                 onChange={(e) => setFormData(prev => ({ ...prev, cost: Number(e.target.value) }))}
                             />
                         </div>
+                        <div className="col-span-1">
+                            <label className="block text-sm font-medium mb-1">Counter</label>
+                            <Input
+                                name="counter"
+                                type="number"
+                                value={formData.counter || ''}
+                                onChange={(e) => setFormData(prev => ({ ...prev, counter: Number(e.target.value) }))}
+                            />
+                        </div>
+                        <div className="col-span-1">
+                            <label className="block text-sm font-medium mb-1">Life</label>
+                            <Input
+                                name="life"
+                                type="number"
+                                value={formData.life || ''}
+                                onChange={(e) => setFormData(prev => ({ ...prev, life: Number(e.target.value) }))}
+                            />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium mb-1">Tags (comma separated)</label>
+                        <Input
+                            name="tags"
+                            value={formData.tags?.join(', ') || ''}
+                            onChange={(e) => setFormData(prev => ({ ...prev, tags: e.target.value.split(',').map(t => t.trim()) }))}
+                        />
                     </div>
 
                     <div>
