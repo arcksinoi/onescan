@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect, useState } from 'react';
+import { useRef, useCallback, useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
 import { useAppStore } from '../../store/useAppStore';
 import { identifyCard } from '../../services/gemini';

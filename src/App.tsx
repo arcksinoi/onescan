@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { SettingsModal } from './features/settings/SettingsModal';
 import { Scanner } from './features/scanner/Scanner';
 import { RecentScans } from './features/decks/RecentScans';

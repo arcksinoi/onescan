@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAppStore, type Card } from '../../store/useAppStore';
 import { Button } from '../../components/ui/button';
-import { Plus, Trash2, Pencil } from 'lucide-react';
+import { Trash2, Pencil } from 'lucide-react';
 import { EditCardModal } from '../cards/EditCardModal';
 
 export const RecentScans = () => {

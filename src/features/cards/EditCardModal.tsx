@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAppStore, type Card } from '../../store/useAppStore';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
-import { X, Pencil } from 'lucide-react';
+import { X } from 'lucide-react';
 
 interface EditCardModalProps {
     card: Card;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAppStore } from '../../store/useAppStore';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
-import { Plus, Trash2, Download, FileJson, FileSpreadsheet, FileText } from 'lucide-react';
+import { Plus, Trash2, FileJson, FileSpreadsheet, FileText } from 'lucide-react';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 
