@@ -27,13 +27,24 @@ export const Scanner = () => {
 
             if (cardData) {
                 const newCard = {
-                    ...cardData,
                     id: crypto.randomUUID(),
+                    name: cardData.card_name,
+                    power: cardData.power,
+                    cost: cardData.cost,
+                    attribute: cardData.attribute,
+                    type: cardData.type,
+                    color: cardData.color,
+                    effectText: cardData.effect_text,
+                    setCode: cardData.set_code,
+                    rarity: cardData.rarity,
+                    counter: cardData.counter,
+                    life: cardData.life,
+                    tags: cardData.tags,
                     timestamp: Date.now(),
-                    imageUrl: imageSrc // Optional: save thumbnail
+                    imageUrl: imageSrc
                 };
                 addCard(newCard);
-                setLastScanned(newCard.card_name);
+                setLastScanned(newCard.name);
 
                 // Clear toast after 3 seconds
                 setTimeout(() => setLastScanned(null), 3000);
