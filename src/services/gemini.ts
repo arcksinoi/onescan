@@ -43,10 +43,20 @@ export async function identifyCard(apiKey: string, imageBase64: string) {
 
         try {
             // Clean up potential markdown
-            const cleanText = text.replace(/```json/g, '').replace(/```/g, '').trim();
+            let cleanText = text.replace(/```json/g, '').replace(/```/g, '').trim();
+
+            // Find the first '{' and last '}' to ensure we only parse the JSON object
+            const firstOpen = cleanText.indexOf('{');
+            const lastClose = cleanText.lastIndexOf('}');
+
+            if (firstOpen !== -1 && lastClose !== -1) {
+                cleanText = cleanText.substring(firstOpen, lastClose + 1);
+            }
+
             return JSON.parse(cleanText);
         } catch (e) {
             console.error("Failed to parse Gemini response:", text);
+            console.error("Parse error:", e);
             return null;
         }
     } catch (error) {
