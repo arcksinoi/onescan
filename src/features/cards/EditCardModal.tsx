@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAppStore, type Card } from '../../store/useAppStore';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
