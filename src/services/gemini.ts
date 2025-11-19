@@ -59,8 +59,20 @@ export async function identifyCard(apiKey: string, imageBase64: string) {
             console.error("Parse error:", e);
             return null;
         }
-    } catch (error) {
+    } catch (error: any) {
         console.error("Gemini API Error:", error);
+
+        // Enhance error message for common issues
+        if (error.message?.includes("401") || error.message?.includes("API key")) {
+            throw new Error("Invalid API Key. Please check your settings.");
+        }
+        if (error.message?.includes("429") || error.message?.includes("quota")) {
+            throw new Error("API Quota Exceeded. Try again later.");
+        }
+        if (error.message?.includes("SAFETY")) {
+            throw new Error("Blocked by Safety Filters. Try a different angle.");
+        }
+
         throw error;
     }
 }

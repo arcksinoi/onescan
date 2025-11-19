@@ -42,7 +42,13 @@ export const Scanner = () => {
             console.error("Scan failed", err);
             // Don't show error to user in auto-mode to avoid spam, maybe just log it
             if (!settings.autoScan) {
-                setError("Failed to identify card. Please try again.");
+                const errorMessage = err instanceof Error ? err.message : "Unknown error";
+                setError(`Error: ${errorMessage}`);
+            } else {
+                // In auto-scan, still show a small error toast or log it to a visible debug area if needed
+                // For now, let's update the error state so it can be seen if they stop auto-scan
+                const errorMessage = err instanceof Error ? err.message : "Unknown error";
+                setError(`Auto-scan Error: ${errorMessage}`);
             }
         } finally {
             setIsProcessing(false);
